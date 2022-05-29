@@ -20,7 +20,7 @@ That's it!
 
 # Installation from PyPi
 Use [pip](https://pip.pypa.io/en/stable/) to install laura and all its
-dependencies from [PyPi](https://pypi.org/):
+dependencies from [PyPi](https://pypi.org/project/laura/):
 
 ```
 pip install laura
