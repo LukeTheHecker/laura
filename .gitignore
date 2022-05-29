@@ -1,0 +1,7 @@
+*.pkl
+*__pycache__
+
+.vscode
+.pytest_cache
+dist
+laura.egg-info
