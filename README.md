@@ -41,6 +41,8 @@ stc.plot()
 **mne.Forward**. For further explanation on mne and its objects please refer to
 the [mne website](https://mne.tools/).
 
+For a more comprehensive tutorial hop over to [this notebook!](tutorials/tutorial_1.ipynb)
+
 # Feedback
 Please leave your feedback and bug reports at lukas_hecker@web.de.
 
