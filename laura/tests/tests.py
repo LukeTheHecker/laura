@@ -1,7 +1,7 @@
 import os
 import mne
 import numpy as np
-from ..laura import compute_laura
+from ..laura import compute_laura, make_laura, apply_laura
 
 verbose = 0
 spacing = 'ico2'
@@ -37,7 +37,14 @@ fwd = mne.convert_forward_solution(fwd, surf_ori=True, force_fixed=True,
                                     use_cps=True, verbose=verbose)
 leadfield = fwd['sol']['data']
 
-def test_laura():
+def test_laura_quick():
     data = np.random.randn(leadfield.shape[0], 10)
     evoked = mne.EvokedArray(data, info)
     stc = compute_laura(evoked, fwd)
+
+
+def test_laura():
+    data = np.random.randn(leadfield.shape[0], 10)
+    evoked = mne.EvokedArray(data, info)
+    G = make_laura(fwd)
+    stc = apply_laura(evoked, G, fwd)

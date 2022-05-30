@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="laura",
-    version="0.0.1",
+    version="0.0.2",
     author="Lukas Hecker",
     author_email="lukas_hecker@web.de",
     description="**laura**: Local Auto-Regressive Average",
