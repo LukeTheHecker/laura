@@ -34,17 +34,10 @@ def pos_from_forward(forward, verbose=0):
 
     return pos
 
-def compute_laura(evoked, forward, noise_cov=None, reg=0.05, drop_off=2,
+def compute_laura(evoked, forward, noise_cov=None, reg=200, drop_off=2,
     verbose=0):
-    """Calculate Local Auto-Regressive Averages (LAURA)
+    """ Calculate Local AUto-Regressive Averages (LAURA) inverse solution
 
-    This function does all the necessary computation:
-
-    - to select the channels in the forward given the available ones in the data
-    - to apply loose orientation constraint as MNE solvers
-    - to apply a weigthing of the columns of the forward operator as in the
-      weighted Minimum Norm formulation in order to limit the problem of depth
-      bias.
 
     Parameters
     ----------
@@ -54,9 +47,11 @@ def compute_laura(evoked, forward, noise_cov=None, reg=0.05, drop_off=2,
         The forward solution.
     noise_cov : instance of Covariance
         The noise covariance.
-    reg : float in [0, 1]
+    reg : float
         Value that weights noise regularization. The higher, the more
-        conservative the source localization will be.
+        conservative the source localization will be. As a rule of thumb you can
+        estimate the optimal reg parameter as follows: reg = 1e3 / SNR, whereas
+        SNR corresponds to the signal-to-noise ratio in your data.
     drop_off : int/float
         Value that is often denoted as exponent "e_i" in the literature [2,
         Appendix] and is set to "2" at default. It corresponds to fields that
